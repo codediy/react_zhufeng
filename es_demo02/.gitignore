@@ -25,3 +25,4 @@ junit-reporter
 logs
 seed
 node_modules/
+dist/
