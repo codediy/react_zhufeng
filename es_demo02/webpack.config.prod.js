@@ -1,14 +1,13 @@
 var path = require('path');
 var webpack = require('webpack');
 var htmlWebpackPlugin = require('html-webpack-plugin');
-var openBrowserPlugin = require('open-browser-webpack-plugin');
-var extractTextWebpackPlugin = require('extract-text-webpack-plugin');
+var uglifyPlugin = webpack.optimize.UglifyJsPlugin;
 
 var config = {
     entry: path.resolve(__dirname, "./src/index.js"),
     output: {
         path: path.resolve(__dirname, "./dist"),
-        filename: "index.[hash:5].js"
+        filename: "index.[hash:8].js"
     },
     module: {
         loaders: [{
@@ -16,8 +15,12 @@ var config = {
             loader: 'babel-loader',
             exclude: /node_modules/
         }, {
-            test: /\.css/,
-            loader: extractTextWebpackPlugin.extract({ fallback: 'style-loader', use: ['css-loader'] }),
+            test: /\.css$/,
+            loader: 'style-loader!css-loader',
+            include: path.resolve(__dirname, 'src')
+        }, {
+            test: /\.less/,
+            loader: 'style-loader!css-loader!less-loader',
             include: path.resolve(__dirname, 'src')
         }]
     },
@@ -34,11 +37,10 @@ var config = {
             title: '搭建前段开发环境',
             template: './src/index.html'
         }),
-        new openBrowserPlugin({
-            url: 'http://localhost:8080'
+        new uglifyPlugin({
+            compress: false
         }),
-        new webpack.BannerPlugin('作者：zhaodj\n日期：2017-03-06'),
-        new extractTextWebpackPlugin("styles.css")
+        new webpack.BannerPlugin('作者：zhaodj\n日期：2017-03-06')
     ]
 };
 

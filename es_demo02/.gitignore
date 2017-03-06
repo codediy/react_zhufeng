@@ -24,3 +24,4 @@ bower_components
 junit-reporter
 logs
 seed
+node_modules/
