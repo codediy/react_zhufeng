@@ -26,3 +26,4 @@ logs
 seed
 node_modules/
 dist/
+.idea/
