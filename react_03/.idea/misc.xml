@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="GradleLocalSettings">
-    <option name="modificationStamps">
-      <map>
-        <entry key="$PROJECT_DIR$/../../cto" value="2977956396000" />
-        <entry key="$PROJECT_DIR$/../../gradle-multi-module" value="2976038712000" />
-        <entry key="$PROJECT_DIR$/../../gradle_test" value="1488012160000" />
-        <entry key="$PROJECT_DIR$/../../springboot_test" value="1487989143000" />
-        <entry key="$PROJECT_DIR$/../../tcmp_gradle" value="1488373807000" />
-      </map>
-    </option>
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
-  </component>
   <component name="JsFlowSettings">
     <service-enabled>false</service-enabled>
     <exe-path />
