@@ -4,12 +4,22 @@ var htmlWebpackPlugin = require('html-webpack-plugin');
 var openBrowserPlugin = require('open-browser-webpack-plugin');
 var extractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
+var libraryName = "sparrow";
+
 var config = {
     entry: path.resolve(__dirname, "./src/index.js"),
     output: {
-        path: path.resolve(__dirname, "./dist"),
-        filename: "index.[hash:5].js"
+        path: path.resolve(__dirname, "./lib"),
+        filename: libraryName + ".js",
+        library: libraryName,
+        libraryTarget: 'umd',
+        umdNamedDefine: true
     },
+    devtool: 'cheap-source-map',
+    // resolve: {
+    //     extension: ['', '.js', '.css', '.json', '.less'],
+    //     root: path.resolve('./static')
+    // },
     module: {
         loaders: [{
             test: /\.js$/,
@@ -17,12 +27,12 @@ var config = {
             exclude: /node_modules/
         }, {
             test: /\.css/,
-            loader: extractTextWebpackPlugin.extract({ fallback: 'style-loader', use: ['css-loader'] }),
+            loader: extractTextWebpackPlugin.extract({fallback: 'style-loader', use: ['css-loader']}),
             include: path.resolve(__dirname, 'src')
         }]
     },
     devServer: {
-        contentBase: 'dist',
+        contentBase: 'lib',
         inline: true,
         port: 8080,
         stats: {

@@ -2,7 +2,17 @@
  * 作者：zhaodj
  * 日期：2017-03-06
  */
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define("sparrow", [], factory);
+	else if(typeof exports === 'object')
+		exports["sparrow"] = factory();
+	else
+		root["sparrow"] = factory();
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 
@@ -77,18 +87,35 @@
 "use strict";
 
 
-function count() {
-    var num = 0;
-    var counter = setInterval(function () {
-        if (num < 9) {
-            console.log(++num);
-        } else {
-            clearInterval(counter);
-        }
-    }, 1000);
-}
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
-count();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var One = function () {
+    function One() {
+        _classCallCheck(this, One);
+
+        this.name = "tset_name";
+    }
+
+    _createClass(One, [{
+        key: "getName",
+        value: function getName() {
+            console.log("hello " + this.name);
+        }
+    }]);
+
+    return One;
+}();
+
+exports.default = One;
+module.exports = exports["default"];
 
 /***/ })
 /******/ ]);
+});
+//# sourceMappingURL=sparrow.js.map

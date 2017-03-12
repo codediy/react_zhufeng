@@ -1,6 +1,10 @@
-import React from 'react';
-import {render} from 'react-dom';
+export default class One {
 
-import App from './containers/app';
+    constructor() {
+        this.name = "tset_name";
+    }
 
-render(<App/>, document.getElementById("app"));
+    getName() {
+        console.log("hello " + this.name);
+    }
+}
