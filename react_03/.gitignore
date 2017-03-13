@@ -94,3 +94,4 @@ node_modules/
 .Trash-*
 /.idea/
 .iml
+lib/

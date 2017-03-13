@@ -3,8 +3,31 @@ var webpack = require('webpack');
 var htmlWebpackPlugin = require('html-webpack-plugin');
 var openBrowserPlugin = require('open-browser-webpack-plugin');
 var extractTextWebpackPlugin = require('extract-text-webpack-plugin');
+var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 
 var libraryName = "sparrow";
+
+
+var args = require('yargs').argv;
+console.log(args);
+
+var webpackPlugins = [
+    new htmlWebpackPlugin({
+        title: '搭建前段开发环境',
+        template: './src/index.html'
+    }),
+    new openBrowserPlugin({
+        url: 'http://localhost:8080'
+    }),
+    new webpack.BannerPlugin('作者：zhaodj\n日期：2017-03-06'),
+    new extractTextWebpackPlugin("styles.css")
+];
+
+if (args.p) {
+    webpackPlugins.push(new uglifyJsPlugin({minimize: true, sourceMap: true, warnings: true}));
+    //sparrow.min.js
+    libraryName = libraryName + ".min"
+}
 
 var config = {
     entry: path.resolve(__dirname, "./src/index.js"),
@@ -16,14 +39,18 @@ var config = {
         umdNamedDefine: true
     },
     devtool: 'cheap-source-map',
-    // resolve: {
-    //     extension: ['', '.js', '.css', '.json', '.less'],
-    //     root: path.resolve('./static')
-    // },
+    resolve: {
+        // root: path.join(__dirname, "./src"),
+        extensions: ['.js', '.css', '.json', '.less']
+    },
     module: {
         loaders: [{
             test: /\.js$/,
             loader: 'babel-loader',
+            exclude: /node_modules/
+        }, {
+            test: /\.js$/,
+            loader: 'eslint-loader',
             exclude: /node_modules/
         }, {
             test: /\.css/,
@@ -39,17 +66,7 @@ var config = {
             colors: true
         }
     },
-    plugins: [
-        new htmlWebpackPlugin({
-            title: '搭建前段开发环境',
-            template: './src/index.html'
-        }),
-        new openBrowserPlugin({
-            url: 'http://localhost:8080'
-        }),
-        new webpack.BannerPlugin('作者：zhaodj\n日期：2017-03-06'),
-        new extractTextWebpackPlugin("styles.css")
-    ]
+    plugins: webpackPlugins
 };
 
 module.exports = config;

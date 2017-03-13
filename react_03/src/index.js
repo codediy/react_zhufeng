@@ -5,6 +5,6 @@ export default class One {
     }
 
     getName() {
-        console.log("hello " + this.name);
+        return `hello ${this.name}`;
     }
 }
