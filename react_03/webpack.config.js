@@ -57,7 +57,7 @@ var config = {
             test: /\.css/,
             loader: extractTextWebpackPlugin.extract({fallback: 'style-loader', use: ['css-loader']}),
             include: path.resolve(__dirname, 'src')
-        }]
+        }],
     },
     devServer: {
         contentBase: 'lib',
