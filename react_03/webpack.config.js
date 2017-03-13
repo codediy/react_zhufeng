@@ -23,7 +23,8 @@ var webpackPlugins = [
     new extractTextWebpackPlugin("styles.css")
 ];
 
-if (args.p) {
+if (args.env === 'prod') {
+    //压缩JS
     webpackPlugins.push(new uglifyJsPlugin({minimize: true, sourceMap: true, warnings: true}));
     //sparrow.min.js
     libraryName = libraryName + ".min"

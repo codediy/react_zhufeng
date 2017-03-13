@@ -1,15 +1,18 @@
-describe('hello test',() => {
+import {expect} from 'chai';
+import sparrow from '../lib/sparrow';
 
-    it('test example', () => {
+describe('test cast', () => {
 
+    let lib;
+
+    before(() => {
+        lib = new sparrow();
     });
 
-    it('chai example', () => {
-        expect('hi').to.equal('hi');
-    });
-
-    it('test 3', ()=> {
-        throw new Error('测试失败了！！！');
+    describe('test sparrow get name', () => {
+        it("", () => {
+            expect(lib.getName()).to.equal('hello tset_name');
+        });
     });
 
 })
