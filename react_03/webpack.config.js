@@ -13,8 +13,8 @@ console.log(args);
 
 var webpackPlugins = [
     new htmlWebpackPlugin({
-        title: '搭建前段开发环境',
-        template: './src/index.html'
+        title: 'react 学习 03',
+        template: path.resolve(__dirname, "./src/index.html")
     }),
     new openBrowserPlugin({
         url: 'http://localhost:8080'

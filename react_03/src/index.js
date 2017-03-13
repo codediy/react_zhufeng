@@ -1,10 +1,10 @@
-export default class One {
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 
-    constructor() {
-        this.name = "tset_name";
-    }
+class App extends Component {
+    render() {
+        return <h1> hello React!</h1>;
 
-    getName() {
-        return `hello ${this.name}`;
     }
 }
+ReactDOM.render(<App/>, document.querySelector("#app"));

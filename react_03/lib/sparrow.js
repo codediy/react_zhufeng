@@ -82,38 +82,9 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var One = function () {
-    function One() {
-        _classCallCheck(this, One);
-
-        this.name = "tset_name";
-    }
-
-    _createClass(One, [{
-        key: "getName",
-        value: function getName() {
-            return "hello " + this.name;
-        }
-    }]);
-
-    return One;
-}();
-
-exports.default = One;
-module.exports = exports["default"];
+throw new Error("Module build failed: SyntaxError: D:/zhufeng_space/react_03/src/index.js: Unexpected token (5:11)\n\n\u001b[0m \u001b[90m 3 | \u001b[39m\n \u001b[90m 4 | \u001b[39m\u001b[36mclass\u001b[39m \u001b[33mApp\u001b[39m \u001b[36mextends\u001b[39m \u001b[33mComponent\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 | \u001b[39m    render \u001b[33m=\u001b[39m () \u001b[33m=>\u001b[39m {\n \u001b[90m   | \u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 | \u001b[39m        \u001b[36mreturn\u001b[39m \u001b[33m<\u001b[39m\u001b[33mh1\u001b[39m\u001b[33m>\u001b[39m hello \u001b[33mReact\u001b[39m\u001b[33m!\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mh1\u001b[39m\u001b[33m>\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 7 | \u001b[39m\n \u001b[90m 8 | \u001b[39m    }\u001b[0m\n");
 
 /***/ })
 /******/ ]);
